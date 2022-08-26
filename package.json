@@ -1,7 +1,7 @@
 {
-  "name": "mapp",
+  "name": "template-vue3.2-project",
   "version": "0.0.0",
-  "description": "陆上风电场施工辅助决策系统微信端",
+  "description": "vue3.2-project template",
   "keywords": [
     "frontend"
   ],
