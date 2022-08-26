@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git@github.com:fazba/template-vue3.2-project.git"
   },
+  "engines": {
+    "node": ">= 16"
+  },
   "scripts": {
     "preinstall": "only-allow pnpm",
     "dev": "vite --host 0.0.0.0 --mode development",
