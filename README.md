@@ -1,2 +1,11 @@
-# template-vue3.2-project
-vue3.2 project template
+# 工具、组件库
+
+element-plus axios vue-router less
+
+# Get Start
+
+* pnpm i
+
+* pnpm run dev
+
+* pnpm run build
