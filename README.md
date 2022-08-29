@@ -4,8 +4,11 @@ element-plus axios vue-router less
 
 # Get Start
 
-* pnpm i
+## Project setup
+`pnpm i`
 
-* pnpm run dev
+## Compiles and hot-reloads for development
+`pnpm dev`
 
-* pnpm run build
+## Compiles and minifies for production
+`pnpm build`
