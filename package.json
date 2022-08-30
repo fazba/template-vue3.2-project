@@ -14,7 +14,7 @@
     "node": ">= 16"
   },
   "scripts": {
-    "preinstall": "only-allow pnpm",
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite --host 0.0.0.0 --mode development",
     "build": "vite build --mode production"
   },

@@ -1,6 +1,8 @@
 # 工具、组件库
 
-element-plus axios vue-router less
+* element-plus
+* axios
+* less
 
 # Get Start
 
