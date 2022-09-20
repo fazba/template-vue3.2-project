@@ -8,7 +8,10 @@ dist.*
 *.7z
 
 # ignore package-lock.json
-# package-lock.json
+package-lock.json
+
+.eslintcache
+
 
 # local env files
 .env.local
