@@ -6,22 +6,28 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/",
-      component: () => import("@/views/Index.vue"),
+      path: '/Login',
+      component: () => import('@/pages/Login.vue'),
     },
     {
-      path: "/Login",
-      component: () => import("@/views/Login.vue"),
+      path: '/',
+      redirect: '/home',
+    },
+    {
+      path: '/home',
+      component: () => import('@/pages/home/Index.vue'),
     },
   ],
 });
 
 router.beforeEach((to, from, next) => {
   NProgress.start();
+  if (to.path === '/login') return next()
+  if (sessionStorage.getItem('userType') == null) return next('/login')
   if (to.matched.length === 0) {
-    from.path ? next({ path: from.path }) : next("/");
+    from.path ? next({ path: from.path }) : next('/')
   } else {
-    next();
+    next()
   }
 });
 router.afterEach(() => {
