@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from "vue-router";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+import { createRouter, createWebHistory } from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,10 +18,10 @@ const router = createRouter({
       component: () => import('@/pages/home/Index.vue'),
     },
   ],
-});
+})
 
 router.beforeEach((to, from, next) => {
-  NProgress.start();
+  NProgress.start()
   if (to.path === '/login') return next()
   if (sessionStorage.getItem('userType') == null) return next('/login')
   if (to.matched.length === 0) {
@@ -29,8 +29,8 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-});
+})
 router.afterEach(() => {
-  NProgress.done();
-});
-export default router;
+  NProgress.done()
+})
+export default router

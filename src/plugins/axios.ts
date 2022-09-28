@@ -1,48 +1,48 @@
-import axios from "axios";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
-import { ElMessage } from "element-plus";
-import useCancelRepeatRequest from "../utils/cancelRepeatRequest";
+import axios from 'axios'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import { ElMessage } from 'element-plus'
+import useCancelRepeatRequest from '../utils/cancelRepeatRequest'
 
 //取消重复请求
-const { addPendingRequest, removePendingRequest } = useCancelRepeatRequest();
+const { addPendingRequest, removePendingRequest } = useCancelRepeatRequest()
 // axios
 export const server = axios.create({
   headers: {
-    "Content-Type": "application/json;charset=utf-8",
+    'Content-Type': 'application/json;charset=utf-8',
     timeout: 10 * 1000,
   },
-});
+})
 
 server.interceptors.request.use(
-  config => {
-    config.url = "/api" + config.url;
+  (config) => {
+    config.url = '/api' + config.url
     //取消重复请求
-    removePendingRequest(config);
-    addPendingRequest(config);
-    NProgress.start();
-    return config;
+    removePendingRequest(config)
+    addPendingRequest(config)
+    NProgress.start()
+    return config
   },
-  error => {
-    throw new Error(error);
+  (error) => {
+    throw new Error(error)
   }
-);
+)
 
 // response interceptor
 server.interceptors.response.use(
-  response => {
-    NProgress.done();
-    removePendingRequest(response.config);
+  (response) => {
+    NProgress.done()
+    removePendingRequest(response.config)
     if (response.data.status == 200 || response.data.status == 300) {
-      return response.data;
+      return response.data
     } else {
-      ElMessage.error(response.data.msg || "数据异常");
+      ElMessage.error(response.data.msg || '数据异常')
     }
   },
-  error => {
-    ElMessage.info("系统繁忙");
-    removePendingRequest(error.config || {});
-    NProgress.done();
-    throw new Error(error);
+  (error) => {
+    ElMessage.info('系统繁忙')
+    removePendingRequest(error.config || {})
+    NProgress.done()
+    throw new Error(error)
   }
-);
+)
