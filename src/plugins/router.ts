@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { sessionCache } from '@/utils/storage'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -23,7 +24,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (to.path === '/login') return next()
-  if (sessionStorage.getItem('userType') == null) return next('/login')
+  if (sessionCache.getItem('userType') == null) return next('/login')
   if (to.matched.length === 0) {
     from.path ? next({ path: from.path }) : next('/')
   } else {
