@@ -16,6 +16,7 @@ export const server = axios.create({
 
 server.interceptors.request.use(
   (config) => {
+    //后端nginx统一接口加上/api
     config.url = '/api' + config.url
     //取消重复请求
     removePendingRequest(config)
