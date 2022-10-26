@@ -7,10 +7,9 @@ dist.*
 *.zip
 *.7z
 
-# ignore package-lock.json
+# ignore lock file
 package-lock.json
-
-.eslintcache
+yarn.lock
 
 
 # local env files
