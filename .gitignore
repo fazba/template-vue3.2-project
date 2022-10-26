@@ -11,6 +11,7 @@ dist.*
 package-lock.json
 yarn.lock
 
+.eslintcache
 
 # local env files
 .env.local
