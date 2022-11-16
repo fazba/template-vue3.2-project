@@ -6,10 +6,10 @@ import 'nprogress/nprogress.css'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {
-      path: '/Login',
-      component: () => import('@/pages/Login.vue'),
-    },
+    // {
+    //   path: '/login',
+    //   component: () => import('@/pages/login/Index.vue'),
+    // },
     {
       path: '/',
       redirect: '/home',
@@ -23,8 +23,8 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  if (to.path === '/login') return next()
-  if (sessionCache.getItem('userType') == null) return next('/login')
+  // if (to.path === '/login') return next()
+  // if (sessionCache.getItem('userType') == null) return next('/login')
   if (to.matched.length === 0) {
     from.path ? next({ path: from.path }) : next('/')
   } else {
